@@ -23,14 +23,20 @@
   &__shape {
     height: 15rem;
     width: 15rem;
+    border-radius: 50%;
     background-color: orangered;
+    overflow: hidden;
 
     float: left;
     shape-outside: circle(50% at 50% 50%);
-    clip-path: circle(50% at 50% 50%);
     transform: skewX(12deg) translateX(-3rem);
 
     position: relative;
+
+    @supports (clip-path(0 0) or -webkit-clip-path(0 0)) {
+      clip-path: circle(50% at 50% 50%);
+      border-radius: none;
+    }
 
     @include respond(phone) {
       transform: skewX(0) translateX(-3rem);

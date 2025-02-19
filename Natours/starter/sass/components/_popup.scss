@@ -13,6 +13,12 @@
 
   transition: all 300ms;
 
+  @supports (backdrop-filter: blur(10px)) {
+    // backdrop-filter: invert(1);
+    backdrop-filter: blur(10px);
+    background-color: transparent;
+  }
+
   &__content {
     @include absCenter;
 
