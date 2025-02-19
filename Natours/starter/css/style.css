@@ -624,12 +624,17 @@ body {
   .story__shape {
     height: 15rem;
     width: 15rem;
+    border-radius: 50%;
     background-color: orangered;
+    overflow: hidden;
     float: left;
     shape-outside: circle(50% at 50% 50%);
-    clip-path: circle(50% at 50% 50%);
     transform: skewX(12deg) translateX(-3rem);
     position: relative; }
+    @supports (clip-path: circle(0 0)) or (-webkit-clip-path: circle(0 0)) {
+      .story__shape {
+        clip-path: circle(50% at 50% 50%);
+        border-radius: none; } }
     @media (max-width: 37.5em) {
       .story__shape {
         transform: skewX(0) translateX(-3rem); } }
@@ -759,7 +764,6 @@ body {
   background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero-small.jpg");
   background-size: cover;
   background-position: top;
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   position: relative; }
   @supports (clip-path: polygon(0 0)) {
     .header {

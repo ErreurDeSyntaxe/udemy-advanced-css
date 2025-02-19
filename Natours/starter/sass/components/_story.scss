@@ -33,7 +33,7 @@
 
     position: relative;
 
-    @supports (clip-path(0 0) or -webkit-clip-path(0 0)) {
+    @supports (clip-path: circle(0 0)) or (-webkit-clip-path: circle(0 0)) {
       clip-path: circle(50% at 50% 50%);
       border-radius: none;
     }
