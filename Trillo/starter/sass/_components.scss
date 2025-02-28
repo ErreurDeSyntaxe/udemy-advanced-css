@@ -1,3 +1,5 @@
+@use './base' as v;
+
 /////////////////////////////////
 /// LOGO STYLING
 .logo {
@@ -13,6 +15,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media only screen and (max-width: v.$bp-smallest) {
+    order: 1;
+    flex-basis: 100%;
+    background-color: var(--color-gray-light-2);
+  }
 
   &__input {
     font-family: inherit;
@@ -127,10 +135,19 @@
   font-size: 1.4rem;
   margin-top: 3.5rem;
 
+  @media only screen and (max-width: v.$bp-medium) {
+    display: flex;
+    margin: 0;
+  }
+
   &__item {
     position: relative;
+    flex: 1;
 
     &:not(:last-child) {
+      @media only screen and (max-width: v.$bp-medium) {
+        margin-bottom: 0;
+      }
       margin-bottom: 0.5rem;
     }
   }
@@ -169,6 +186,16 @@
 
       position: relative;
       z-index: 10;
+
+      @media only screen and (max-width: v.$bp-medium) {
+        justify-content: center;
+        padding: 2rem;
+      }
+
+      @media only screen and (max-width: v.$bp-small) {
+        flex-direction: column;
+        padding: 1.5rem 0.5rem;
+      }
     }
   }
   &__item:active::before {
@@ -181,6 +208,13 @@
 
     margin-right: 2rem;
     fill: currentColor;
+
+    @media only screen and (max-width: v.$bp-small) {
+      margin-right: 0;
+      margin-bottom: 0.7rem;
+      width: 1.5rem;
+      height: 1.5rem;
+    }
   }
 }
 
@@ -191,6 +225,10 @@
   color: var(--color-gray-light-4);
   text-align: center;
   padding: 2.5rem;
+
+  @media only screen and (max-width: v.$bp-medium) {
+    display: none;
+  }
 }
 
 /////////////////////////////////
@@ -219,6 +257,11 @@
     letter-spacing: 1px;
 
     padding: 1.5rem 3rem;
+
+    @media only screen and (max-width: v.$bp-small) {
+      font-size: 1.8rem;
+      padding: 1.25rem 2rem;
+    }
   }
   &__stars {
     margin-right: auto;
@@ -249,14 +292,26 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    @media only screen and (max-width: v.$bp-small) {
+      padding: 0 1.5rem;
+    }
   }
   &__rating-average {
     font-size: 2.25rem;
     font-weight: 300;
+
+    @media only screen and (max-width: v.$bp-small) {
+      font-size: 1.8rem;
+    }
   }
   &__rating-count {
     font-size: 0.8rem;
     text-transform: uppercase;
+
+    @media only screen and (max-width: v.$bp-small) {
+      font-size: 0.5rem;
+    }
   }
 }
 
@@ -398,6 +453,11 @@
   position: relative;
   overflow: hidden;
 
+  @media only screen and (max-width: v.$bp-medium) {
+    padding: 2rem;
+    margin-bottom: 3rem;
+  }
+
   &::before {
     content: '\201C';
     position: absolute;
@@ -453,6 +513,10 @@
 
   &__button {
     flex-grow: 0;
+
+    @media only screen and (max-width: v.$bp-small) {
+      align-self: center;
+    }
   }
 }
 
@@ -461,6 +525,10 @@
 .cta {
   padding: 3.5rem 0;
   text-align: center;
+
+  @media only screen and (max-width: v.$bp-medium) {
+    padding: 2.5rem 0;
+  }
 
   &__book-now {
     font-size: 2rem;
